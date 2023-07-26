@@ -21,7 +21,7 @@ export class World {
       this.clear();
     }
 
-    clear() {
+    clear() { //
       // Initialize the array cells to 0 (all elements = 0)
       for(let i=0; i < this.height; i++) {
         this.cells[i] = new Array(this.width);
