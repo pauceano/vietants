@@ -12,6 +12,7 @@
 import {dUtils} from "./drawingUtils.js"
 import {Colony} from "./colony.js"
 
+// 6
 
 export class World {
     constructor(height, width) {

@@ -2,6 +2,7 @@
 // Imports
 import {dUtils} from "./drawingUtils.js"
 
+// 6
 
 export class Colony {
     constructor(x, y, color = undefined) {
