@@ -1,8 +1,7 @@
-// npm i --save-dev @web/dev-server
-// https://github.com/johnBuffer/AntSimulator/tree/master/src
+// Imports
 import {dUtils} from "./drawingUtils.js"
 
-
+// Data
 const colors = [
       {r: 255, g:   0, b:   0, a: 255}, // red
       {r:   0, g: 255, b:   0, a: 255}, // green
@@ -14,6 +13,8 @@ let green = {r:   0, g: 255, b:   0, a: 255}; // green
 let blue = {r:   0, g: 255, b:   0, a: 255}; // green
 
 
+
+// Main
 dUtils.init();
 
 let x = 100;
