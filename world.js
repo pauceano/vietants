@@ -13,6 +13,21 @@ export class World {
       this.height = height;
       this.width = width;
 
+      this.cells = new Array(height);
+      for(let i=0; i < height; i++) {
+        this.cells[i] = new Array(width);
+      }
 
+      this.clear();
+    }
+
+    clear() {
+      // Initialize the array cells to 0 (all elements = 0)
+      for(let i=0; i < this.height; i++) {
+        this.cells[i] = new Array(this.width);
+        for(let j=0; j < this.width; j++) {
+          this.cells[i][j] = 0;
+        }
+      }
     }
   }
