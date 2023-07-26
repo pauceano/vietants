@@ -65,5 +65,11 @@ export class World {
       }
     }
 
+    draw() {
+      for(let i=0; i < this.colonies.length; i++) {
+        this.colonies[i].draw();
+      }
+    }
+
 
   }
