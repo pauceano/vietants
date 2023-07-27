@@ -1,6 +1,11 @@
 // Imports
 import {dUtils} from "./drawingUtils.js"
 
+import Ant from "./ant.js"
+import Colony from "./colony.js"
+import World from "./world.js"
+     
+
 // Data
 const colors = [
       {r: 255, g:   0, b:   0, a: 255}, // red
