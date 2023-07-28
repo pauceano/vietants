@@ -22,12 +22,7 @@ let blue = {r:   0, g: 255, b:   0, a: 255}; // green
 // Main
 dUtils.init();
 
-let x = 100;
-let y = 100;
-
-for(let i=0; i < 100; i++) {
-      dUtils.drawPixel(x+i, y+i, colors[0]);
-}
+// Here we will do the program
 
 dUtils.swapBuffer();
 
