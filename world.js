@@ -1,3 +1,4 @@
+
 // This class represents the world of ants
 // Logically there will be only one object of this class (if we do not want to simulate a war between two worlds)
 // Properties:
@@ -15,7 +16,7 @@ import {Colony} from "./colony.js"
 // 6
 
 export class World {
-    constructor(height, width) {
+    constructor(width, height) {
         
       this.height = height;
       this.width = width;
@@ -55,6 +56,24 @@ export class World {
       this.cells[y][x] = value;
     }
 
+    addRock(x, y, size) {
+      let s2 = size/2;
+      for(let i=Math.max(0,y-s2); i < Math.min(this.height,y+s2); i++) {
+        for(let j=Math.max(0,x-s2); j < Math.min(this.width,x+s2); j++) {
+          this.cells[i][j] = 2;
+        }
+      }
+    }
+
+    addFood(x, y, size) {
+      let s2 = size/2;
+      for(let i=Math.max(0,y-s2); i < Math.min(this.height,y+s2); i++) {
+        for(let j=Math.max(0,x-s2); j < Math.min(this.width,x+s2); j++) {
+          this.cells[i][j] = 1;
+        }
+      }
+    }
+
     addColony(x, y) {
       this.colonies.push(new Colony(x,y));
     }
@@ -66,6 +85,22 @@ export class World {
     }
 
     draw() {
+      // Here we draw the ground
+      for(let i=0; i < this.height; i++) {
+        for(let j=0; j < this.width; j++) {
+          if (this.cells[i][j] == 0) {
+            dUtils.drawPixel(j,i, {r: 255, g: 255, b: 255, a: 255});  // White (nothing)
+          }
+          if (this.cells[i][j] == 1) {
+            dUtils.drawPixel(j,i, {r: 0, g: 255, b: 0, a: 255});  // Green (food)
+          }
+          if (this.cells[i][j] == 2) {
+            dUtils.drawPixel(j,i, {r: 0, g: 0, b: 0, a: 255});  // Black (rock)
+          }
+        }
+      }
+
+      // Here we draw the colonies
       for(let i=0; i < this.colonies.length; i++) {
         this.colonies[i].draw();
       }
@@ -73,3 +108,5 @@ export class World {
 
 
   }
+
+  

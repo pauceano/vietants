@@ -1,7 +1,7 @@
 
 // Imports
 import {dUtils} from "./drawingUtils.js"
-import {Ants} from "./ants.js"
+import {Ant} from "./ant.js"
 
 
 export class Colony {
