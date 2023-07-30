@@ -30,8 +30,9 @@ export class World {
       this.colonies = new Array();
     }
 
-    clear() { //
       // Initialize the array cells to 0 (all elements = 0)
+      // this function is to reset the world
+      clear() { 
       for(let i=0; i < this.height; i++) {
         this.cells[i] = new Array(this.width);
         for(let j=0; j < this.width; j++) {
@@ -56,8 +57,11 @@ export class World {
       this.cells[y][x] = value;
     }
 
+    // draws a square of size 'size' centered in (x,y)
+    // it is a bit complicated because it draws the square centered, and it controls that 
+    // it does not go out of the world using functions Math.max and Math.min (we will see this later)
     addRock(x, y, size) {
-      let s2 = size/2;
+      let s2 = size/2;  
       for(let i=Math.max(0,y-s2); i < Math.min(this.height,y+s2); i++) {
         for(let j=Math.max(0,x-s2); j < Math.min(this.width,x+s2); j++) {
           this.cells[i][j] = 2;
@@ -65,6 +69,9 @@ export class World {
       }
     }
 
+    // draws a square of size 'size' centered in (x,y)
+    // it is a bit complicated because it draws the square centered, and it controls that 
+    // it does not go out of the world using functions Math.max and Math.min (we will see this later)
     addFood(x, y, size) {
       let s2 = size/2;
       for(let i=Math.max(0,y-s2); i < Math.min(this.height,y+s2); i++) {
@@ -74,16 +81,25 @@ export class World {
       }
     }
 
+    // This function adds a colony to the world
     addColony(x, y) {
-      this.colonies.push(new Colony(x,y));
+      let colony = new Colony(x,y);
+      // the function push adds an element to the end of the array
+      this.colonies.push(colony);
     }
 
+    // This function updates the world calling the function update of each colony
+    // the idea is that each colony will update itself and call the function update of each ant
     update() {
       for(let i=0; i < this.colonies.length; i++) {
         this.colonies[i].update();
       }
     }
 
+    // This function draws the world
+    // first it traverses the array cells and draws the ground drawing white, black or green
+    // depending if there is nothing (0), a rock (2) or food (1)
+    // after that it draws the colonies calling the method draw of each colony 
     draw() {
       // Here we draw the ground
       for(let i=0; i < this.height; i++) {
