@@ -1,6 +1,9 @@
 // Imports
 // to import a class from a module, we use the import keyword
 // import simply means to bring the definition we have made in another file to this file
+// we want to keep the code organized, so we have made a file for each class
+// we could have made all the classes in the same file, but it would be a mess
+// so, we have made a file for each class, and we import the classes we need
 
 // Here we import dUtils, where we have some drawing functions
 // in the file drawingUtils.js, we have defined an dUtils that has the drawing function
